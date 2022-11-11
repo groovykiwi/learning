@@ -1,0 +1,10 @@
+123 Ahmet 88
+225 John 44
+356 Ata 100
+421 Ali 10
+456 Cemal 99
+554 Lara 87
+584 Tom 23
+633 Sevgi 75
+776 Meral 66
+792 Kemal 88
