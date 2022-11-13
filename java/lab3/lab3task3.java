@@ -1,3 +1,5 @@
+package lab3;
+
 import java.util.*;
 
 public class lab3task3 {

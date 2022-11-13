@@ -8,52 +8,53 @@ struct studinfo
     char name[10];
     int grade;
 };
-void main()
+
+// Returns index of entry or -1 if not found
+int binarySearch(struct studinfo arr[], int num, int bot, int top)
+{
+    while (top != bot)
+    {
+        int mid = (top + bot) / 2;
+
+        // Debugging purposes
+        printf("top: %d bot: %d mid: %d     [%d %s %d]\n", top, bot, mid, arr[mid].stnr, arr[mid].name, arr[mid].grade);
+
+        if (num == arr[mid].stnr)
+            return mid;
+        else if (num > arr[mid].stnr)
+            bot = mid + 1;
+        else
+            top = mid - 1;
+    }
+    return -1;
+}
+
+int main()
 {
     struct studinfo s[10];
-    int counter = 0;
-    FILE *file;
-    file = fopen("first.txt", "r");
-    int stnr, grade;
+    int entries = 0;
     char current_name[12];
+    FILE *file = fopen("first.txt", "r");
+
     while (!feof(file))
     {
-        fscanf(file, "%d %s %d", &stnr, current_name, &grade);
-        strcpy(s[counter].name, current_name);
-        s[counter].stnr = stnr;
-        s[counter].grade = grade;
-
-        counter++;
+        fscanf(file, "%d %s %d", &s[entries].stnr, current_name, &s[entries].grade);
+        strcpy(s[entries].name, current_name);
+        entries++;
     }
-
     fclose(file);
 
-    int bot, top, mid, num;
-    printf("Enter student number to search for: ");
-    scanf("%d", &num);
+    int std_num;
+    printf("\nEnter student number to search for: ");
+    scanf("%d", &std_num);
 
-    counter = 0;
-    top = 10;
-    bot = 0;
+    int std_index = binarySearch(s, std_num, 0, 9);
 
-    do
-    {
-        mid = (top + bot) / 2;
-        printf("mid: %d top: %d bot: %d %d %s %d\n", mid, top, bot, s[mid].stnr, s[mid].name, s[mid].grade);
-        if (num == s[counter].stnr)
-        {
-            printf("found");
-            break;
-        }
-        else if (num > s[counter].stnr)
-        {
-            bot = mid + 1;
-        }
-        else
-        {
-            top = mid - 1;
-        }
+    if (std_index != -1)
+        printf("\nThe student was found at index %d: %s %d/100\n", std_index, s[std_index].name, s[std_index].grade);
+    else
+        printf("\nThe student was not found\n");
 
-        counter++;
-    } while (1);
+    // system("pause");
+    return 0;
 }
