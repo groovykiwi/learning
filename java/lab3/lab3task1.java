@@ -18,7 +18,7 @@ public class lab3task1 {
 		System.out.println("Enter number: ");
 		Scanner in = new Scanner(System.in);
 		int a = in.nextInt();
-
+		in.close();
 		System.out.println("Sum of digits: " + sumDigits(a));
 	}
 }

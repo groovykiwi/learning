@@ -26,6 +26,7 @@ public class lab3task2 {
         System.out.println("Enter number: ");
         Scanner in = new Scanner(System.in);
         int a = in.nextInt();
+        in.close();
 
         if (isPalindrome(a))
             System.out.println("The number is a palindrome");

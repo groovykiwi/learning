@@ -18,6 +18,7 @@ public class task2 {
         System.out.println("Enter number: ");
         Scanner in = new Scanner(System.in);
         int a = in.nextInt();
+        in.close();
 
         System.out.println("Reverse is: " + reverse(a));
     }

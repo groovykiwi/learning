@@ -30,6 +30,7 @@ public class lab3task3 {
         System.out.print("Enter number: ");
         Scanner in = new Scanner(System.in);
         int a = in.nextInt();
+        in.close();
 
         if (isHappy(a))
             System.out.println("The number is happy");
