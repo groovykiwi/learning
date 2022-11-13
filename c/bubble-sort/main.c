@@ -9,12 +9,13 @@ int main()
     while (counter <= 150)
     {
         num = rand() % 600 + 1;
-        add == true for (int i = 0; i < 150; i++)
+        int add = 1;
+        for (int i = 0; i < 150; i++)
         {
             if (num == numbers[i])
             {
                 counter--;
-                add = false;
+                add = 0;
             }
         }
     }
