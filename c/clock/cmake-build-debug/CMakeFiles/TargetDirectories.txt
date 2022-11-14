@@ -1,3 +1,0 @@
-D:/projects/coding in c/clock/cmake-build-debug/CMakeFiles/clock.dir
-D:/projects/coding in c/clock/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/projects/coding in c/clock/cmake-build-debug/CMakeFiles/rebuild_cache.dir
