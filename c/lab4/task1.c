@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <conio.h>
+//#include <conio.h>
 #define STACKSIZE 6
 
 struct person
