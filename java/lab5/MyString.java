@@ -1,3 +1,5 @@
+package lab5;
+
 import java.util.*;
 
 public class MyString {
@@ -15,9 +17,16 @@ public class MyString {
         return value.length;
     };
 
-    // public MyString substring(int begin, int end) {
-    // return MyString();
-    // }
+    public MyString substring(int begin, int end) {
+        char[] sub = new char[end - begin];
+
+        for (int i = 0; i < sub.length; i++) {
+            sub[i] = value[i + begin];
+        }
+        MyString result = new MyString(sub);
+        return result;
+
+    }
 
     public MyString toLowerCase() {
         char[] lower = new char[value.length];
@@ -60,9 +69,9 @@ public class MyString {
         return this.length() - s.length();
     };
 
-    // public MyString substring(int begin) {
-
-    // };
+    public MyString substring(int begin) {
+        return this.substring(begin, value.length);
+    };
 
     public MyString toUpperCase() {
         char[] lower = new char[value.length];
@@ -92,10 +101,17 @@ public class MyString {
         System.out.println(Arrays.toString(a.toLowerCase().value));
 
         // Equals
+        System.out.println();
         System.out.println(a.equals(b));
         System.out.println(a.equals(c));
 
+        // Substring
+        System.out.println();
+        System.out.println(Arrays.toString(a.substring(0, 3).value));
+        System.out.println(Arrays.toString(a.substring(3).value));
+
         // Compare
+        System.out.println();
         String d = "HeLlo";
         String e = "hello";
         System.out.println(a.compare(d));
