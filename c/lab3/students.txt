@@ -1,0 +1,6 @@
+123 Ahmet 88
+456 Cemal 99
+633 Sevgi 75
+776 Meral 66
+792 Kemal 88
+8879 Meral 81

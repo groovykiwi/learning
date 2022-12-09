@@ -34,7 +34,7 @@ int main()
     struct studinfo s[10];
     int entries = 0;
     char current_name[12];
-    FILE *file = fopen("first.txt", "r");
+    FILE *file = fopen("students.txt", "r");
 
     while (!feof(file))
     {
