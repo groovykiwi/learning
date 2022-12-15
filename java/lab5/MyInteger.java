@@ -85,7 +85,7 @@ public class MyInteger {
         int x = 0, increment = 1;
 
         for (int i = num.length() - 1; i >= 0; i--) {
-            x += (int) Character.getNumericValue(num.charAt(i)) * increment;
+            x += Character.getNumericValue(num.charAt(i)) * increment;
             increment *= 10;
         }
         return x;
