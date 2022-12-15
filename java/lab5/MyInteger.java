@@ -57,6 +57,40 @@ public class MyInteger {
         return isPrime(x.value);
     }
 
+    boolean equals(int x) {
+        if (value == x)
+            return true;
+        else
+            return false;
+    }
+
+    boolean equals(MyInteger x) {
+        if (value == x.value)
+            return true;
+        else
+            return false;
+    }
+
+    static int parseInt(char[] num) {
+        int x = 0, increment = 1;
+
+        for (int i = num.length - 1; i >= 0; i--) {
+            x += num[i] * increment;
+            increment *= 10;
+        }
+        return x;
+    }
+
+    static int parseInt(String num) {
+        int x = 0, increment = 1;
+
+        for (int i = num.length() - 1; i >= 0; i--) {
+            x += (int) Character.getNumericValue(num.charAt(i)) * increment;
+            increment *= 10;
+        }
+        return x;
+    }
+
     public static void main(String[] args) {
         MyInteger a = new MyInteger(12);
         MyInteger b = new MyInteger(17);
@@ -83,5 +117,11 @@ public class MyInteger {
         System.out.println(a.isOdd(b));
         System.out.println(a.isPrime(b));
 
+        // Parse Int from Char array
+        System.out.println();
+        System.out.println(MyInteger.parseInt(new char[] { 1, 2, 3 }));
+
+        String str = "321";
+        System.out.println(MyInteger.parseInt(str));
     }
 }
