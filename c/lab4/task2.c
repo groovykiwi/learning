@@ -1,6 +1,6 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #define MAXCOLS 80
 struct stack
 {
@@ -20,10 +20,9 @@ void main(void)
     while ((expr[pos++] = getchar()) != '\n')
         ;
     expr[--pos] = '\0';
-    printf("%s%s", " the original postfix expression is ", expr);
-    getchar();
-    printf("\n %f ", eval(expr));
-    getchar();
+    printf("%s%s", " The original postfix expression is \n", expr);
+
+    printf("\nAnswer is: %.2f ", eval(expr));
 }
 double pop(struct stack *ps)
 {
@@ -60,8 +59,12 @@ double eval(char expr[])
     struct stack s;
     s.top = -1;
     for (pos = 0; (c = expr[pos]) != '\0'; pos++)
+    {
         if (isdigit(c))
             push(&s, (double)(c - '0'));
+        else if (c == ' ')
+        {
+        }
         else
         {
             opnd2 = pop(&s);
@@ -69,19 +72,17 @@ double eval(char expr[])
             value = oper(c, opnd1, opnd2);
             push(&s, value);
         }
+    }
     return (pop(&s));
 }
-int isdigit(char symb)
-{
-    return (symb >= '0' && symb <= '9');
-}
+int isdigit(char symb) { return (symb >= '0' && symb <= '9'); }
 double oper(int symb, double op1, double op2)
 {
     switch (symb)
     {
     case '+':
         return (op1 + op2);
-    case '- ':
+    case '-':
         return (op1 - op2);
     case '*':
         return (op1 * op2);
@@ -94,3 +95,6 @@ double oper(int symb, double op1, double op2)
         exit(1);
     }
 }
+
+// 9 1 4 2 / + - 2 3 * /
+// 3 9 2 3 $ - * 6 +
