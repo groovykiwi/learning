@@ -1,11 +1,29 @@
 public class task {
     public static void main(String[] args) {
-        Rectangle b = new Rectangle(5, 10);
-        Circle c = new Circle(5);
+        Point a = new Point(4, 7);
+        Shape b = new Shape("red");
+        Rectangle c = new Rectangle(5, 10);
+        Circle d = new Circle(5);
 
+        a.print();
         b.print();
         c.print();
+        d.print();
 
+        System.out.println("");
+        // Rectangle
+        Point ruCorner = c.getCornerRightUpp();
+        System.out.println("Right-upper corner: (" + ruCorner.getX() + ", " + ruCorner.getY() + ")");
+        System.out.println("Area of rectangle: " + c.getArea());
+        System.out.println("Color of rectangle: " + c.getColor());
+
+        System.out.println("");
+        // Circle
+        Point center = d.getCenter();
+        System.out.println("Color of circle: " + d.getColor());
+        System.out.println("Center: (" + center.getX() + ", " + center.getY() + ")");
+        d.setCenter(2, 5);
+        System.out.println("Center: (" + center.getX() + ", " + center.getY() + ")");
     }
 }
 
@@ -31,9 +49,16 @@ class Point {
         return y;
     }
 
-    public void setLocation(double x, double y) {
+    public void setX(double x) {
         this.x = x;
+    }
+
+    public void setY(double y) {
         this.y = y;
+    }
+
+    public void print() {
+        System.out.printf("Point: (%.2f, %.2f)\n", x, y);
     }
 }
 
@@ -55,7 +80,8 @@ class Shape {
     }
 
     public void setLocation(double x, double y) {
-        location.setLocation(x, y);
+        location.setX(x);
+        location.setY(y);
     }
 
     public String getColor() {
@@ -68,7 +94,7 @@ class Shape {
 
     public void print() {
         System.out
-                .println("Shape: color = " + color + ", location = (" + location.getX() + ", " + location.getY() + ")");
+                .printf("Shape: %s, (%.2f, %.2f)\n", color, getX(), getY());
     }
 }
 
@@ -98,29 +124,14 @@ class Rectangle extends Shape {
         return new Point(getX() + width, getY() + height);
     }
 
-    @Override
-    public void setLocation(double x, double y) {
-        super.setLocation(x, y);
-    }
-
-    @Override
-    public String getColor() {
-        return super.getColor();
-    }
-
-    @Override
-    public void setColor(String color) {
-        super.setColor(color);
-    }
-
     public double getArea() {
         return width * height;
     }
 
     @Override
     public void print() {
-        System.out.println("Rectangle: width = " + width + ", height = " + height + ", color = " + getColor()
-                + ", location = (" + getX() + ", " + getY() + ")");
+        System.out.printf("Rectangle: width %.2f, height %.2f, center (%.2f, %.2f), color %s\n", width, height,
+                getX(), getY(), getColor());
     }
 }
 
@@ -129,13 +140,14 @@ class Circle extends Shape {
     private Point center;
 
     public Circle(double radius) {
-        super("black");
+        super("yellow");
         this.radius = radius;
         this.center = new Point();
     }
 
     public void setCenter(double x, double y) {
-        center.setLocation(x, y);
+        center.setX(x);
+        center.setY(y);
     }
 
     public Point getCenter() {
@@ -143,18 +155,7 @@ class Circle extends Shape {
     }
 
     @Override
-    public void setColor(String color) {
-        super.setColor(color);
-    }
-
-    @Override
-    public String getColor() {
-        return super.getColor();
-    }
-
-    @Override
     public void print() {
-        System.out.println("Circle: radius = " + radius + ", center = (" + center.getX() + ", " + center.getY()
-                + "), color = " + getColor());
+        System.out.printf("Circle: radius %.2f, center (%.2f, %.2f), color %s\n", radius, getX(), getY(), getColor());
     }
 }
