@@ -44,19 +44,15 @@ int main(void)
     struct queue q;
     q.front = q.rear = MAXELEMENTS - 1;
 
+    // Initialize Queue with tenPerson
     struct person tenPerson[10] = {123, "Ahmet", 21, "M",
                                    234, "Sevgi", 26, "F", 128, "Osman", 18, "M", 432, "Mert", 27, "M",
                                    287, "Ayse", 34, "F", 423, "Kemal", 21, "M", 634, "Lale", 16, "F",
                                    828, "Sefer", 15, "M", 252, "Meral", 27, "F", 887, "Demet", 34, "F"};
-
-    struct queue *pq = &q; // Pointer to queue
-
-    // Initialize Queue
     for (int i = 0; i <= 10; i++)
     {
-        pq->allperson[i] = tenPerson[i];
+        cqinsert(&q, tenPerson[i]);
     }
-    pq->rear += 10;
 
     do
     {
@@ -64,7 +60,7 @@ int main(void)
         scanf("\n%c", &operation);
         switch (operation)
         {
-        case 'I':
+        case 'i':
             printf("%s\n", "Insert an element");
             scanf("\n%d %s %d %s", &empNo, name, &age, gender);
 
@@ -75,7 +71,7 @@ int main(void)
 
             cqinsert(&q, x);
             break;
-        case 'D':
+        case 'd':
             x = cqdelete(&q);
             break;
         }
