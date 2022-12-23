@@ -45,8 +45,10 @@ int main()
 
     double find_average(int a[], int n)
     {
-        int sum = find_sum(a, n);
-        return (double)sum / (double)n;
+        if (n == 1)
+            return a[n - 1];
+        else
+            return (find_average(a, n - 1) * (n - 1) + a[n - 1]) / n;
     }
 
     int arr[] = {1, 3, 2, 4};

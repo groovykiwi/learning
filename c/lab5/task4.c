@@ -1,10 +1,3 @@
-/* ************************************ */
-/* Queues main Operations */
-/* Inserting & Deleting Integer values into/from */
-/* a Circular queue */
-/* Insertion(I) and Deletion(D) Operationions */
-/* End Of operation(E) */
-/* ************************************* */
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
@@ -42,7 +35,11 @@ int main(void)
     char gender[2];
 
     struct queue q;
+    struct queue m;
+    struct queue f;
     q.front = q.rear = MAXELEMENTS - 1;
+    m.front = m.rear = MAXELEMENTS - 1;
+    f.front = f.rear = MAXELEMENTS - 1;
 
     // Initialize Queue with tenPerson
     struct person tenPerson[10] = {123, "Ahmet", 21, "M",
@@ -56,7 +53,7 @@ int main(void)
 
     do
     {
-        printf("%s\n", "\nInsert Operation type I, D or E ");
+        printf("%s\n", "\nInsert Operation type I, D, A or E ");
         scanf("\n%c", &operation);
         switch (operation)
         {
@@ -73,6 +70,33 @@ int main(void)
             break;
         case 'D':
             x = cqdelete(&q);
+            if (strcmp(x.gender, "M") == 0)
+            {
+                printf("\nMale added");
+                cqinsert(&m, x);
+            }
+            if (strcmp(x.gender, "F") == 0)
+            {
+                printf("\nFemale added");
+                cqinsert(&f, x);
+            }
+            break;
+        case 'A':
+            while (empty(&q) == 0)
+            {
+                x = cqdelete(&q);
+                if (strcmp(x.gender, "M") == 0)
+                {
+                    printf("\nMale added");
+                    cqinsert(&m, x);
+                }
+                if (strcmp(x.gender, "F") == 0)
+                {
+                    printf("\nFemale added");
+                    cqinsert(&f, x);
+                }
+            }
+
             break;
         }
     } while (operation != 'E');
@@ -96,6 +120,7 @@ struct person cqdelete(struct queue *pq)
 
     struct person p = pq->allperson[pq->front];
     printf("\n%d %s %d %s at location %d is deleted \n", p.empNo, p.name, p.age, p.gender, pq->front);
+
     return (pq->allperson[pq->front]);
 }
 void cqinsert(struct queue *pq, struct person x)

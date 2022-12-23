@@ -1,10 +1,3 @@
-/* ************************************ */
-/* Queues main Operations */
-/* Inserting & Deleting Integer values into/from */
-/* a Circular queue */
-/* Insertion(I) and Deletion(D) Operationions */
-/* End Of operation(E) */
-/* ************************************* */
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
