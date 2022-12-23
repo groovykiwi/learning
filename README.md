@@ -1,7 +1,13 @@
-### CMPE 211 (Java)
+### CMPE 211 ( Java )
 
-[Here](https://github.com/groovykiwi/cmpe-labs/tree/main/java)
+- [Labs](https://github.com/groovykiwi/cmpe/tree/main/java)
+- [Notes](https://github.com/groovykiwi/obsidian/tree/main/Java)
 
-### CMPE 231 (C)
+### CMPE 231 ( C )
 
-[Here](https://github.com/groovykiwi/cmpe-labs/tree/main/c)
+- [Labs](https://github.com/groovykiwi/cmpe/tree/main/c)
+- [Notes](https://github.com/groovykiwi/obsidian/tree/main/C)
+
+### CMPE 223 ( Logic Design )
+
+- [Notes](https://github.com/groovykiwi/obsidian/tree/main/Logic%20Design)
