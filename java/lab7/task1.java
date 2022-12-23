@@ -6,7 +6,6 @@ public class task1 {
     static int a, b;
 
     public static void main(String[] args) {
-
         getInput();
         System.out.printf("%d + %d = %d\n", a, b, a + b);
     }
