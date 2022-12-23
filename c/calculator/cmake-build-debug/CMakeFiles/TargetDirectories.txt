@@ -1,3 +1,0 @@
-D:/projects/coding in c/cmake-build-debug/CMakeFiles/coding_in_c.dir
-D:/projects/coding in c/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/projects/coding in c/cmake-build-debug/CMakeFiles/rebuild_cache.dir
