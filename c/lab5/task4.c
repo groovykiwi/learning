@@ -60,7 +60,7 @@ int main(void)
         scanf("\n%c", &operation);
         switch (operation)
         {
-        case 'i':
+        case 'I':
             printf("%s\n", "Insert an element");
             scanf("\n%d %s %d %s", &empNo, name, &age, gender);
 
@@ -71,7 +71,7 @@ int main(void)
 
             cqinsert(&q, x);
             break;
-        case 'd':
+        case 'D':
             x = cqdelete(&q);
             break;
         }

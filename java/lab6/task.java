@@ -4,11 +4,14 @@ public class task {
         Shape b = new Shape("red");
         Rectangle c = new Rectangle(5, 10);
         Circle d = new Circle(5);
+        Square e = new Square(15);
+        e.setLocation(2, 4);
 
         a.print();
         b.print();
         c.print();
         d.print();
+        e.print();
 
         System.out.println("");
         // Rectangle
@@ -24,6 +27,13 @@ public class task {
         System.out.println("Center: (" + center.getX() + ", " + center.getY() + ")");
         d.setCenter(2, 5);
         System.out.println("Center: (" + center.getX() + ", " + center.getY() + ")");
+
+        System.out.println("");
+        // Square
+        Point sqCorner = e.getCornerRightUpp();
+        System.out.println("Right-upper corner: (" + sqCorner.getX() + ", " + sqCorner.getY() + ")");
+        System.out.println("Area of square: " + e.getArea());
+        System.out.println("Color of square: " + e.getColor());
     }
 }
 
@@ -99,8 +109,8 @@ class Shape {
 }
 
 class Rectangle extends Shape {
-    private double width;
-    private double height;
+    double width;
+    double height;
 
     public Rectangle(double width, double height) {
         super("black");
@@ -157,5 +167,26 @@ class Circle extends Shape {
     @Override
     public void print() {
         System.out.printf("Circle: radius %.2f, center (%.2f, %.2f), color %s\n", radius, getX(), getY(), getColor());
+    }
+}
+
+class Square extends Rectangle {
+    Square(double length) {
+        super(length, length);
+    }
+
+    public void setLength(double l) {
+        width = l;
+        height = l;
+    }
+
+    public double getCircumference() {
+        return width * 4;
+    }
+
+    @Override
+    public void print() {
+        System.out.printf("Square: length %.2f, center (%.2f, %.2f), color %s\n", width,
+                getX(), getY(), getColor());
     }
 }
